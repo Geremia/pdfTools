@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Make all pages portrait orientation
+
 import pymupdf as p
 import sys
 
