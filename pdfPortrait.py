@@ -5,12 +5,11 @@
 import pymupdf as p
 import sys
 
-if len(sys.argv) < 3:
-    print("Usage: %s <input PDF> <output PDF>" % sys.argv[0])
+if len(sys.argv) < 2:
+    print("Usage: %s <input PDF> " % sys.argv[0])
     sys.exit(1)
 
 pdf = sys.argv[1]
-outputPDF = sys.argv[2]
 
 try:
     doc = p.open(pdf)
@@ -24,4 +23,4 @@ for page in doc:
         print("Page %d: %d x %d is landscape. Rotating 90°." % (page.number, height, width))
         page.set_rotation(90)
 
-doc.save(outputPDF)
+doc.saveIncr()
